@@ -1,0 +1,315 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\title{Math Advanced Topics Notes}
+
+\newcommand{\Z}{$\mathbb{Z}$}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\newtheorem{theorem}{Theorem}
+
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\author{Emmanuel Eppinger}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Subrings}
+\subsection{Subring Theorem}
+A non-empty subset of a ring is a subring under the same operations if and only if it is closed under multiplication and subtraction.
+\begin{proof}
+
+Forward Direction: It is obviously true in the forwards direction.
+Backwards Direction:
+Suppose R is a ring and S a non-empty subset, which is closed under multiplication and subtraction. Now we wish to show that S is a ring. Now, because S is non-empty, we choose an arbitrary element in S: s. First note that because S is closed under subtraction, $s-s=0 \in S$. Next suppose $a \in S$, let because 0 is an element of S and S is closed under subtraction $0-a \in S$. Now suppose that $a,b \in S$. It has been previously proven that $-b \in S$. But then, $a+b=a-(-b) \in S$ which is shows that S is closed under addition.\\
+
+To show that S is a r ring, need to show addition is commutative, addition and multiplication are associative, and multiplication is distributive over addition. But all of these properties are are based operations in R which is a ring. So we know it works.
+
+\end{proof}
+
+\subsection{Multiplicative Identity}
+We call an element \textit{u} of a ring R a unity or multiplicative identity if $ua = au = a$ $\forall a \in R$. Note: This is not necessary to be a ring.
+
+\subsection{Commutative Ring}
+A ring where multiplication is commutative.
+
+\section{Integral Domains and Fields}
+\begin{definition}
+
+Let R be a commutative ring. An element a, not zero, is a zero divisor if there exists another element b such that ab=0. Of course, b is also a zero divisor. \\
+
+Examples: 2,3 for $\mathbb{Z}_6$\\
+none for $\mathbb{Z}_5$\\
+For $\mathbb{Z}x\mathbb{Z}$: $(a,0)$ and $(0,b)$ where a,b are integers and not zero
+non for integers
+
+\end{definition}
+
+This gives us a definition:
+
+\begin{definition}
+
+A commutative ring with unity that has no zero divisor is called an \textit{Integral Domain} or simply a domain.
+
+Ex.: \Z and \Z sub 5 are domains as are $\mathbb{Q}, \mathbb{R}, \mathbb{C}$
+
+\end{definition}
+
+Note: 2\Z is NOT a domain because it has no unity, even though it is commutative, but has no zero divisors.
+
+\begin{theorem}
+	Multiplicative Cancellation: Suppose R is an integral domain and a,b,c are elements of R, with a not zero. If ab=ac, then b = c.\\
+    \begin{proof}
+		Suppose that b is not equal to c. Since a is not equal to 0 and there are no zero divisors then ab is not equal to ac.
+	\end{proof}
+\end{theorem}
+
+\subsection{Units}
+\begin{definition}
+Suppose R is a ring with unity 1. Let a be any on zero element of R. We say a is a unit if there is  an element b of R st $ab = ba = 1$. In this case, b is a multiplicative inverse of a. (of course, b is also a unit with inverse a.)
+\end{definition}
+
+Note: unity 1 is always a unit because $1 \cdot 1 = 1$.\\
+
+Quick Exercise:\\
+Determine the units of:
+\begin{itemize}
+\item In \Z
+1,-1
+\item In $\mathbb{Q}$
+All non zero elements
+\item In $\mathbb{R}$
+All non zero elements
+\item In $\mathbb{Z}_6$
+1 and 5.
+\end{itemize}
+
+Quick Exercise:\\
+Compute units of these rings:
+\begin{itemize}
+\item $\mathbb{Z}_5$: 1, 2, 3, 4
+\item $\mathbb{Z}_{12}$: 1, 5, 7, 11
+\item $\mathbb{Z}x\mathbb{Z}$: $(1,1)$, $(1,-1)$, $(-1,-1)$, $(-1,1)$,
+\item $\mathbb{R}x\mathbb{R}$: $(a,b)$ st $a,b \ne 0$
+\end{itemize}
+
+Fact:\\
+Multiplicative Inverse:work in commutative rings\\
+$\left(\begin{array}{l l}
+1 & 2\\
+3 & 4\\
+\end{array}\right)$
+$\cdot$
+$\left(\begin{array}{l l}
+1 & 0\\
+0 & 1\\
+\end{array}\right)$
+=
+$\left(\begin{array}{l l}
+1 & 2\\
+3 & 4\\
+\end{array}\right)$\\
+
+Claim: Multiplicative Inverses: if they exist, they are unique.\\
+\begin{proof}
+Suppose that for every element of ring R: $a$, there exists an element of R: $b$ st $ab = u$, the unit of the ring. Suppose that there exists another element of R: $c$ such that $ac = u$. This implies that $ab = ac$. This implies that $b = c$. Therefore, b is unique.\\
+\end{proof}
+Note: The inverse of a (if it exists) is unique and denoted by $a^{-1}$
+
+\begin{definition}
+Denote set of units in ring R by $U(R)$\\
+ex.\\
+$U(\mathbb{Z}) = \{1, -1\}$\\
+$U(\mathbb{Q}) = \mathbb{Q}\backslash \{0\}$\\
+$U(\mathbb{Z}_6) = \{1, 5\}$
+\end{definition}
+
+The set $U(R)$ has nice properties:\\
+First:\\
+Check $U(R)$ is closed under multiplication.
+\begin{proof}
+Suppose $a, b \in U(R)$. This implies that since $U(R)$ is closed under multiplication, $ab\in U(R)$. This implies that $ab$ is a unit.
+\end{proof}
+\section{Fields}
+\begin{definition}
+Field: A commutative ring with unity in which every non-zero element is a unit.
+\end{definition}
+\begin{definition}
+Field: A commutative ring in which one can always solve equations of the form $ax=b$ where $a\neq 0$. And the solution is $x = a^{-1}b$.
+\end{definition}
+\begin{definition}
+In all rings, we can add, subtract, and multiply.\\
+In fields, we can divide.
+\end{definition}
+Fact: Every field is a domain.
+\begin{theorem}
+A Field has no zero divisors.
+\end{theorem}
+\begin{proof}
+Suppose F is a field and $a \in F$, $a \neq 0$. Now suppose $ab = 0$. This implies that $aba^{-1} = b = 0(a^{-1}) = 0$ Therefore there are no zero divisors in F.
+\end{proof}
+
+\subsection{Finite Fields}
+\begin{theorem}
+$\mathbb{Z}_n$ is a field iff n is prime.
+\end{theorem}
+
+\begin{proof}
+Forward Direction:\\
+Suppose n is composite. This implies that there exists $a,b \in \mathbb{Z}_n$ such that $ab = n$. This implies that $[a][b] = [n] = [0]$. This implies that a and b are zero divisors and therefore $\mathbb{Z}_n$ is not a field.\\
+Backwards Direction:\\
+Suppose n is prime and let $0 < x < n$. This implies that there exists an inverse $[x]^{-1}$. That is, we must find a $y$ such that $[x][y] = [1]$. Because n is prime, we know $gcd[n,x] = 1$. By GCD identity, there exists  r,s such that $1 = rn + sx$ But then $[s][x] = [1] - [r][n] = [1]$. And so, $[s]$ is the inverse of $[x]$
+\end{proof}
+
+Note: There is an implication of the above proof we can use it to compute multiplicative inverses in $\mathbb{Z}_p$ where p is prime.
+
+\begin{enumerate}
+\item{Compute $[23]^{-1}$ in $\mathbb{Z}_{119}$\\
+
+
+	Apply Euclid's algorithm to obtain:\\
+    $119 = 23(5) + 4$\\
+    $23 = 4(5) + 3$\\
+    $4 = 3(1) + 1$\\
+    $3 = 1(3) + 0$\\
+    $gcd(119,23) = 1$\\
+	$1 = 23(-31) + 119(6)$\\
+
+    $1 = 0 + 23(-31)$ in $\mathbb{Z}_{119}$
+    so $-31 = 88$ is the inverse of $23$ in $\mathbb{Z}_{119}$
+
+}
+\end{enumerate}
+
+\subsection{Recipe to compute Inverse in $\mathbb{Z}_{p}$}
+$[x]^{-1}$ in $\mathbb{Z}_{p}$
+\begin{enumerate}
+\item Given $x$ and $p$ using Euclid's algorithm to show $gcd(p,x) = 1$
+\item Work backward through resulting equation to obtain $r,s$ for linear combination.
+\item Reduce $s$ in $\mathbb{Z}_{p}$
+\end{enumerate}
+
+Note: this method works as long as $gcd(p,x) = 1$ aka they are relatively prime.\\
+
+\subsection{Fermat's Little Theorem}
+\begin{theorem}
+(Alternative Approach to computing $[x]^{-1}$ in $\mathbb{Z}_{p}$)\\
+If p is prime and $0 < x < p$, then $x^{p-1} \equiv 1$ in $\mathbb{Z}_{p}$. Hence, in $\mathbb{Z}_{p}$, $[x]^{-1} \equiv  [x^{p-2}]$
+\end{theorem}
+
+Example: in $\mathbb{Z}_{5}$ this $th^{m}$ claims that $p[3^4] \equiv [1]$ which implies that $[3]^{-1} \equiv [3]^{3} \equiv [27] \equiv [2]$
+
+\begin{proof}
+Suppose p is prime and $0 < x < p$. Then $[x]$ is a non-zero element of the field $\mathbb{Z}_p$. Consider the set $S$ of non-zero multiples of $[x]$ in $\mathbb{Z}_p$. $S = \{ [x*1],[x*2],[x*3]...[x*(p-1)]\}$. Because the field has no zero divisors, each element of S is non zero. Because a field satisfies multiplicative cancellation, no two of these elements are the same. Thus, the set $S$ consists of $p-1$ distinct non-zero elements and so must consist of the set $\{ [1], [2],..[p-1]\}$. We now multiply all elements of $S$ together as multiplying all non-zero elements of $\mathbb{Z}_p$. $[1][2]...[p-1][x]^{p-1} = [1][2][3]...[p-1]$. By multiplicative cancellation in the domain $\mathbb{Z}_p$ we can cancel $[1][2]...[p-1]$ from each side, so $[x]^{p-1} \equiv 1$ (mod $p$).
+\end{proof}
+
+Check the key idea of FLT for x=3 and p=17 ie. check that the set S consists of 16 non-zero elements of $\mathbb{Z}_p$.\\
+$\{[3*1], [3*2], [3*3], [3*4], [3*5], [3*6], [3*7], [3*8], [3*9], [3*10], [3*11], [3*12], [3*13], [3*14], [3*15], [3*16]\} \equiv \{ [3], [6], [9], [12], 15], [1], [4], [7], [10], [13], [16], [2], [5], [8], [11], [14]\}$
+
+
+\section{Differential Equations}
+\subsection{Function Definition}
+Correspondence between domain $D$ and range $R$ such that $\exists d \in D $ for $\exists r \in R$ that is unique.\\
+
+\subsubsection{Note:}
+
+If $y = ln(x)$, successive derivatives are:
+$y'=\frac{1}{x}$, $y'=\frac{-1}{x^2}$, $y'=\frac{2}{x^3}$
+
+If $z= x^3 -3xy+2y^2$, its partial derivatives with respect to $x$ and with respect to $y$ are respectively: $\frac{\partial z}{\partial x} = 3x^2 - 3y$ and $\frac{\partial z}{\partial y} = -3x+4y$.
+
+The $2^{nd}$ partial derivateves are respectively: $\frac{\partial^2 z}{\partial x^2} = 6x$ and $\frac{\partial^2 z}{\partial y^2} = 4$
+
+Both sets of equations in this note are both differential equations, the first is an example of ordinary differential equations: ODEs, the second is an example of partial differential equations: PDE
+
+
+\textbf{ODE Defn: equation involving $x$, a function: $f(x)$, and one or more of its derivatives}
+
+\subsubsection{Examples:}
+
+\begin{enumerate}
+\item $\frac{dy}{dx} + y = 0$
+\item $y' = e^x$
+\item $\frac{d^2 y}{d x^2} = \frac{1}{1-x^2}$
+\item $f'(x) = f''(x)$
+\item $x y' = 2y$
+\item $y'' + (3y')^3 +2x = 7$
+\item $(y''')^2 + (y'')^4 + y' = x$
+\item $xy'''' + 2y''+(xy')^5 = x^3$
+\end{enumerate}
+
+\subsubsection{Definition: Order of Differential Equation}
+order of the highest derivative involved in the equation
+
+First Order: $1$, $2$, $5$
+
+Second Order: $3$, $4$, $6$
+
+Third Order: $7$
+
+Fourth Order: $8$
+
+\vspace{6pt}
+
+\subsubsection{Example:}
+
+$y'' - y'' + y' - y = 0$
+
+Solution of Differential Equations:\\
+
+Consider: $x^2 - 2x - 3 = 0$, $x = 3$ is a solution\\
+
+Now Consider: (1) $y=f(x)=ln(x)+x$, $x > 0$ and (2) $x^2y'' + 2xy' y = ln(x) 3x + 1$\\
+
+(1) is a solution to (2)\\
+
+\subsubsection{Note:}
+\begin{enumerate}
+\item We specified the values of x for which function is defined
+\item Specified interval where Differential Equation makes sense
+\end{enumerate}
+
+
+\subsubsection{Definition: Explicit Solution}
+Let $y=f(x)$ be a function of x on $I: a<x<b$, we say $f(x)$ is an EXPLICIT SOLUTION or a SOLUTION of an ODE evolving $x, f(x),$ and its derivatives if it satisfies the equation for \textbf{every} $x \in I$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+\e
