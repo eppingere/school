@@ -12,7 +12,7 @@ See notes on Portal
 
 Water consists of 2 Hydrogen atoms and 1 oxygen atom
 Electronegativity: a more electronegative atom attracts electrons more strongly in a bond than a less electronegative atom in a bond
-Electrons spend more time around the oxygen atom than the Hydrogen atoms, water is a polar molocule, and polar covelant
+Electrons spend more time around the oxygen atom than the Hydrogen atoms, water is a polar molecule, and polar covalent
 Oxygens are slightly negative and hydrogens are slightly positive
 Hydrogen bonds occurs between two different molecules, the hydrogen positive in one molecule and the negative atom in another
 Hydrogen bonding in water is responsible for most of waters capacity
